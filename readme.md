@@ -291,7 +291,7 @@ _"No alive nodes found in your cluster"_
 
 ![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_codeliv/blob/master/public/images/10.png )
 	
-From `comments`:
+`From comments`:
 
 ```
 Tan Hoang
@@ -302,7 +302,7 @@ it means your elasticsearch service is not up.. should check that
 
 [(15:55)]( https://youtu.be/aCpsSIY_2eU?t=955 ) Checking the result: 
 
-In `Terminal`:
+`In Terminal`:
 
 	sudo systemctl start elasticsearch.service
 
