@@ -146,9 +146,8 @@ DB_PASSWORD=your_password
 
 	php artisan migrate
 
-ERROR - 
 
-[(8:20)]( https://youtu.be/aCpsSIY_2eU?t=500 )
+[(8:20)]( https://youtu.be/aCpsSIY_2eU?t=500 ) ERROR:
 
 ![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_codeliv/blob/master/public/images/6.png )
 
@@ -282,6 +281,8 @@ Solved this by using the command:
 
 	sudo chmod -R 777 /var/www/LARAVEL/Elasticsearch/elastic_codeliv.loc														
 
+`In Browser`:	
+	
 	http://elastic_codeliv.loc/search
 
 ERROR:
@@ -299,7 +300,7 @@ Arif
 it means your elasticsearch service is not up.. should check that
 ```
 
-[(15:55)]( https://youtu.be/aCpsSIY_2eU?t=955 ) Рез-тат проверки: 
+[(15:55)]( https://youtu.be/aCpsSIY_2eU?t=955 ) Checking the result: 
 
 In `Terminal`:
 
