@@ -19,13 +19,14 @@ Route::get('/', function () {
 	
 	Article::putMapping($ignoreConflicts = true);
 	
-	Article::addToIndex();
+	Article::addAllToIndex();
 	
 	return view('welcome');	
 });
 
 Route::get('/search', function () {	
-	$articles = Article::searchByQuery(['match' => ['title' => 'Sed']]);
+	$articles = Article::searchByQuery(['match' => ['title' => "Repudiandae sit esse repellendus."]]);
+	//$articles = Article::searchByQuery(['match' => ['tags' => 'aut,quae,odit,consequatur']]);
 	
 	return $articles;
 });

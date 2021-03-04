@@ -259,7 +259,7 @@ Route::get('/', function () {
 	
 	Article::putMapping($ignoreConflicts = true);
 	
-	Article::addToIndex();
+	Article::addAllToIndex();
 	
 	return view('welcome');	
 });
@@ -310,7 +310,45 @@ it means your elasticsearch service is not up.. should check that
 
 	http://elastic_codeliv.loc/search
 
-![screenshot of sample]( https://github.com/mslobodyanyuk/elastic_codeliv/blob/master/public/images/11.png )
+---	
+	
+***	
+
+NOT WORKING for `ElasticSearch 7.x`. A database with a mapping with an obsolete parameter is NOT created, it gives:
+===================================================================================================================
+
+ERROR:
+
+```
+BadRequest400Exception (400)
+{"error": {"root_cause": [{"type": "mapper_parsing_exception", "reason": "Root mapping definition has unsupported parameters: [articles: ...
+```
+	
+- NOT WORKING on version `ElasticSearch 7.x` because of:
+	
+_It looks like you are using `elasticsearch 7.x` version which no longer supports `type`. So remove `article` from the mapping and use as shown below:_
+
+<https://coderoad.ru/56416248/mapper_parsing_exception-%D1%81-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%D0%BC-%D1%8D%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0-6-1-1>	
+
+- REMOVE the name of the `"table"` (- `"articles"`, `"type"` - deprecated in `Es 7.x` ) OR replace, in `ElasticquentTrait` in `getTypeName()` function, DOES NOT give the result:
+
+```php 
+return ''; 
+```
+
+OR 
+
+```php
+return '_doc';
+```
+
+<https://github.com/elasticquent/Elasticquent/issues/193>
+
+***
+
+---
+
+    ![screenshot of successful result]( https://github.com/mslobodyanyuk/elastic_codeliv/blob/master/public/images/11.png )
 	
 #### Useful links:
 

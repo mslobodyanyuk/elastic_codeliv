@@ -26,6 +26,7 @@ return array(
     | This is the index name that Elasticquent will use for all
     | Elasticquent models.
     */
-    'default_index' => 'articles',
+
+    'default_index' => 'articles_1',
 
 );
